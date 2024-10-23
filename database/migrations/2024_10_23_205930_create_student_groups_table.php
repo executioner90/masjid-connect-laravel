@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mosque_student', function (Blueprint $table) {
-            $table->bigInteger('mosque_id');
-            $table->bigInteger('student_id');
+        Schema::create('student_groups', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mosque_student');
+        Schema::dropIfExists('groups');
     }
 };

@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mosque_activities', function (Blueprint $table) {
+        Schema::create('student_activities', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->integer('points');
             $table->timestamps();
         });
     }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('mosque_activities', function (Blueprint $table) {
             $table->id();
+            $table->foreign('mosque_id')->references('id')->on('mosques')->onDelete('cascade');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('lecturer');
+            $table->dateTime('start_time');
+            $table->boolean('repetitive')->default(false);
             $table->timestamps();
         });
     }

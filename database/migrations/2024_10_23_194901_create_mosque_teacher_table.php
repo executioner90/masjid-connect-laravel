@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mosque_teacher', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->bigInteger('mosque_id');
+            $table->bigInteger('teacher_id');
         });
     }
 
